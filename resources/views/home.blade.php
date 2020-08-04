@@ -14,7 +14,7 @@
             <form method="POST" action="{{route('saveEntry')}}">
                 @csrf
                     <label for="title">Title</label>
-                    <input type="text" name="name" id="title" class="form-control mb-2"/>
+                    <input type="text" name="name" id="title" value="{{old('name')}}" class="form-control mb-2"/>
                     
                     @foreach ($errors->get('name') as $error)
                             <small class="text-danger"> {{$error}} </small>
@@ -36,7 +36,8 @@
 
                         <div>
                             <a href="{{route('fetchToUpdate', $item ) }}"  class="btn btn-warning">Update</a>
-                            <form action="#" method="POST" class="d-inline-block">
+                            <form action="{{route('deleteEntry',$item->id)}}" method="POST" class="d-inline-block">
+                                @csrf
                                 <input type="submit" class="btn btn-danger" value="Delete"/>
                             </form>
                         </div>

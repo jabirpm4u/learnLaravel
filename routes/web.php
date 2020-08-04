@@ -19,3 +19,5 @@ Route::post('/save',"TodoController@saveEntry")->name('saveEntry');
 Route::get('/fetch/{todo}',"TodoController@fetchToUpdate")->name('fetchToUpdate');
 
 Route::post('/update/{todo}',"TodoController@updateEntry")->name('updateEntry');
+
+Route::post('/delet/{todo}',"TodoController@deleteEntry")->name('deleteEntry');

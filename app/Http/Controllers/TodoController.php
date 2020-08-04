@@ -44,4 +44,10 @@ class TodoController extends Controller
 
         return redirect(route('home'));
     }
+    //deleting controller
+    public function deleteEntry(Todo $todo){
+        $todo->delete();
+        return back();
+    }
+
 }
