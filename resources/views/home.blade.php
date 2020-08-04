@@ -35,7 +35,7 @@
                         </div>
 
                         <div>
-                            <a href="#" class="btn btn-warning">Update</a>
+                            <a href="{{route('fetchToUpdate', $item ) }}"  class="btn btn-warning">Update</a>
                             <form action="#" method="POST" class="d-inline-block">
                                 <input type="submit" class="btn btn-danger" value="Delete"/>
                             </form>

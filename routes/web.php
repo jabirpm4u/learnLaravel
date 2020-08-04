@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',"TodoController@home")->name('home');
 
 Route::post('/save',"TodoController@saveEntry")->name('saveEntry');
+
+Route::get('/fetch/{todo}',"TodoController@fetchToUpdate")->name('fetchToUpdate');
+
+Route::post('/update/{todo}',"TodoController@updateEntry")->name('updateEntry');

@@ -15,7 +15,7 @@ class TodoController extends Controller
     //saving controller
     public function saveEntry(Request $req){
         $validated  = $req->validate([
-            'name'=>['required','max:50','email:rfc,dns']
+            'name'=>['required','max:50']
         ]);
 
         // $todo = new Todo();
@@ -23,6 +23,25 @@ class TodoController extends Controller
         // $todo->save();
 
         Todo::create($validated); // simple bulk entry code that simplifies above 3 line codes
+        return redirect(route('home'));
+    }
+
+    //fetching controller
+    public function fetchToUpdate(Todo $todo){
+        // dd($todo);
+        if(!$todo)
+            return abort(400);
+        return view('update',compact('todo'));
+    }
+
+    //updating controller
+    public function updateEntry(Request $req , Todo $todo){
+        $validated  = $req->validate([
+            'name'=>['required','max:50']
+        ]);
+        $todo->update($validated);
+        // dd($validated);
+
         return redirect(route('home'));
     }
 }
